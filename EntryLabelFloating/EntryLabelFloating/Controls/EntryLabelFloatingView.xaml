@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="clr-namespace:EntryLabelFloating.Custom"
+             mc:Ignorable="d"
+             x:Class="EntryLabelFloating.Controls.EntryLabelFloatingView"
+             x:Name="EntryLabelFloating"
+             BackgroundColor="#F5F5F5">
+  <ContentView.Content>
+        <Grid BackgroundColor="#F5F5F5">
+            <controls:CustomEntryLabel x:Name="customEntry" 
+                                  HeightRequest="46" 
+                                  FontSize="16"
+                                  EntryBorderColor="#808080"
+                                  Text="{Binding EntryText, Source={x:Reference EntryLabelFloating}}" 
+                                  ReturnType="{Binding EntryReturnType, Source={x:Reference EntryLabelFloating}}"
+                                  IsPassword="{Binding EntryIsPassword, Source={x:Reference EntryLabelFloating}}"
+                                  Keyboard="{Binding EntryKeyboard, Source={x:Reference EntryLabelFloating}}"
+                                  TextColor="#374955" 
+                                  BackgroundColor="#F5F5F5"
+                                  Unfocused="CustomEntry_Unfocused" 
+                                  Focused="CustomEntry_Focused"
+                                  Completed="CustomEntry_Completed" />
+
+            <Label x:Name="LabelFloating" 
+                   Text="{Binding lblTextTitle, Source={x:Reference EntryLabelFloating}}" 
+                   BackgroundColor="Transparent"
+                   TextColor="#808080" 
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LabelFloating_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

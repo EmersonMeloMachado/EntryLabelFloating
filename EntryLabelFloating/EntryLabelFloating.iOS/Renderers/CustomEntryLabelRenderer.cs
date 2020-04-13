@@ -22,22 +22,6 @@ namespace EntryLabelFloating.iOS.Renderers
 			var element = (CustomEntryLabel)this.Element;
 			var textField = this.Control;
 
-			if (e.PropertyName == CustomEntryLabel.IsEntrySelectedProperty.PropertyName)
-			{
-				if (((CustomEntryLabel)this.Element).IsEntrySelected)
-				{
-					this.Control.Layer.BorderColor = UIColor.Blue.CGColor;
-					this.Control.Layer.BorderWidth = new nfloat(0.8);
-					this.Control.Layer.CornerRadius = 5;
-				}
-				else
-				{
-					this.Control.Layer.BorderColor = UIColor.LightGray.CGColor;
-					this.Control.Layer.CornerRadius = 5;
-					this.Control.Layer.BorderWidth = new nfloat(0.8);
-				}
-
-			}
 			if (!string.IsNullOrEmpty(element.EntryImage))
 			{
 				switch (element.EntryImageAlignment)
@@ -63,6 +47,17 @@ namespace EntryLabelFloating.iOS.Renderers
 
 			textField.Layer.AddSublayer(bottomBorder);
 			textField.Layer.MasksToBounds = true;
+
+			if (e.PropertyName == CustomEntryLabel.IsEntrySelectedProperty.PropertyName)
+			{
+				this.Control.Layer.BorderWidth = new nfloat(0.8);
+				this.Control.Layer.CornerRadius = 5;
+
+				if (element.IsEntrySelected)
+					this.Control.Layer.BorderColor = UIColor.Blue.CGColor;
+				else
+					this.Control.Layer.BorderColor = UIColor.LightGray.CGColor;
+			}
 		}
 
 		private UIView GetImageView(string imagePath, int height, int width)

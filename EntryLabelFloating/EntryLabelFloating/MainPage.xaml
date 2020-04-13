@@ -2,15 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:controls="clr-namespace:EntryLabelFloating.Controls"
              mc:Ignorable="d"
-             x:Class="EntryLabelFloating.MainPage">
+             x:Class="EntryLabelFloating.MainPage"
+             BackgroundColor="#F5F5F5">
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" WidthRequest="400" HorizontalOptions="Center">
+            <controls:EntryLabelFloatingView lblTextTitle="Login" HorizontalOptions="Center" Margin="20,5,20,10" />
+            <controls:EntryLabelFloatingView lblTextTitle="Senha" EntryIsPassword="True" HorizontalOptions="Center" Margin="20,10,20,10" />
+            <Button Text="Sign In" HeightRequest="46" BackgroundColor="#00C0FF" TextColor="#EFFBFF" Margin="20,10,20,5" />
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>
