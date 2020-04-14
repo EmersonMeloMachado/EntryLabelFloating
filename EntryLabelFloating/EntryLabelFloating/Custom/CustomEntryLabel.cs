@@ -88,6 +88,15 @@ namespace EntryLabelFloating.Custom
         public static readonly BindableProperty EntryImageProperty =
             BindableProperty.Create(nameof(EntryImage), typeof(string), typeof(CustomEntryLabel), string.Empty);
 
+        public string EntryImagePassword
+        {
+            get { return (string)GetValue(EntryImagePasswordProperty); }
+            set { SetValue(EntryImagePasswordProperty, value); }
+        }
+
+        public static readonly BindableProperty EntryImagePasswordProperty =
+            BindableProperty.Create(nameof(EntryImagePassword), typeof(string), typeof(CustomEntryLabel), string.Empty);
+
         public static readonly BindableProperty EntryLineColorProperty =
             BindableProperty.Create(nameof(EntryLineColor), typeof(Color), typeof(CustomEntryLabel), Color.White);
         public Color EntryLineColor
@@ -97,7 +106,7 @@ namespace EntryLabelFloating.Custom
         }
 
         public static readonly BindableProperty EntryImageWidthProperty =
-            BindableProperty.Create(nameof(EntryImageWidth), typeof(int), typeof(CustomEntryLabel), 40);
+            BindableProperty.Create(nameof(EntryImageWidth), typeof(int), typeof(CustomEntryLabel), 12);
         public int EntryImageWidth
         {
             get { return (int)GetValue(EntryImageWidthProperty); }
@@ -105,7 +114,7 @@ namespace EntryLabelFloating.Custom
         }
 
         public static readonly BindableProperty EntryImageHeightProperty =
-            BindableProperty.Create(nameof(EntryImageHeight), typeof(int), typeof(CustomEntryLabel), 40);
+            BindableProperty.Create(nameof(EntryImageHeight), typeof(int), typeof(CustomEntryLabel), 12);
 
         public int EntryImageHeight
         {

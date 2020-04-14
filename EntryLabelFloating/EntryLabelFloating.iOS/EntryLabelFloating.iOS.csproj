@@ -134,4 +134,16 @@
       <Name>EntryLabelFloating</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\invisivel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\senha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\visivel.png" />
+  </ItemGroup>
 </Project>

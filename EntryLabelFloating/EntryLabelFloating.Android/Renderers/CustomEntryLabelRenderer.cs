@@ -73,7 +73,7 @@ namespace EntryLabelFloating.Droid.Renderers
             shape.SetCornerRadius(10);
 
             if (element.IsEntrySelected)
-                shape.SetStroke(10, Android.Graphics.Color.Blue);
+                shape.SetStroke(6, Android.Graphics.Color.Blue);
             else
                 shape.SetStroke(2, Android.Graphics.Color.ParseColor("#808080"));//shape.SetStroke(2, element.EntryBorderColor.ToAndroid());
 

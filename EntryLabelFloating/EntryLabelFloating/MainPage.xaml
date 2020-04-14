@@ -10,8 +10,19 @@
 
     <StackLayout>
         <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" WidthRequest="400" HorizontalOptions="Center">
-            <controls:EntryLabelFloatingView lblTextTitle="Login" HorizontalOptions="Center" Margin="20,5,20,10" />
-            <controls:EntryLabelFloatingView lblTextTitle="Senha" EntryIsPassword="True" HorizontalOptions="Center" Margin="20,10,20,10" />
+            
+            <controls:EntryLabelFloatingView lblTextTitle="Login"
+                                             EntryImage="login"
+                                             HorizontalOptions="Center" 
+                                             Margin="20,5,20,10" />
+            
+            <controls:EntryLabelFloatingView lblTextTitle="Senha"
+                                             x:Name="Passoword"
+                                             EntryImage="senha"
+                                             ImagePassowordSource="visivel"
+                                             EntryIsPassword="True" 
+                                             HorizontalOptions="Center" 
+                                             Margin="20,10,20,10" />
             <Button Text="Sign In" HeightRequest="46" BackgroundColor="#00C0FF" TextColor="#EFFBFF" Margin="20,10,20,5" />
         </StackLayout>
     </StackLayout>

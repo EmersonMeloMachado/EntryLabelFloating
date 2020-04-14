@@ -11,13 +11,37 @@ namespace EntryLabelFloating.Controls
     {
         int _fontSizePlaceholder = 16;
         int _fontSizeTitle = 12;
-        int _marginTop = -22;
+        int _marginTop = -30;
+        private int tapCount;
 
+        public event EventHandler ImagePassowordClicked;
         public EntryLabelFloatingView()
         {
             InitializeComponent();
-            LabelFloating.TranslationX = 20;
+            LabelFloating.TranslationX = 30;
             LabelFloating.FontSize = _fontSizePlaceholder;
+
+            var tgr = new TapGestureRecognizer { NumberOfTapsRequired = 2 };
+            tgr.Tapped += ImagePassowordOn_Clicked;
+            imagePassoword.GestureRecognizers.Add(tgr);
+        }
+
+        public virtual void ImagePassowordOn_Clicked(object sender, EventArgs e)
+        {
+            ImagePassowordClicked?.Invoke(sender, e);
+
+            tapCount++;
+            var imageSender = (Image)sender;
+            if (tapCount % 2 == 0)
+            {
+                customEntry.IsPassword = true;
+                imageSender.Source = "visivel.png";
+            }
+            else
+            {
+                customEntry.IsPassword = false;
+                imageSender.Source = "invisivel.png";
+            }
         }
 
         public string EntryText
@@ -27,6 +51,36 @@ namespace EntryLabelFloating.Controls
         }
 
         public static readonly BindableProperty EntryTextProperty = BindableProperty.Create(nameof(EntryText), typeof(string), typeof(string), string.Empty, BindingMode.TwoWay, null, HandleBindingPropertyChangedDelegate);
+
+        public string EntryImage
+        {
+            get { return (string)GetValue(EntryImageProperty); }
+            set { SetValue(EntryImageProperty, value); }
+        }
+
+        public static readonly BindableProperty EntryImageProperty = BindableProperty.Create(nameof(EntryImage), typeof(string), typeof(string), string.Empty, BindingMode.TwoWay, null, HandleBindingImagemPropertyChangedDelegate);
+
+        static void HandleBindingImagemPropertyChangedDelegate(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = bindable as EntryLabelFloatingView;
+            if (control.EntryImage != null)
+            {
+                control.customEntry.EntryImage = control.EntryImage;
+            }
+        }
+
+        public ImageSource ImagePassowordSource
+        {
+            get { return (ImageSource)GetValue(ImagePassowordSourceProperty); }
+            set { SetValue(ImagePassowordSourceProperty, value); }
+        }
+
+        public static readonly BindableProperty ImagePassowordSourceProperty = BindableProperty.Create(nameof(ImagePassowordSource), typeof(ImageSource), 
+            typeof(EntryLabelFloatingView), defaultBindingMode: BindingMode.TwoWay,propertyChanged: (bindable, oldVal, newVal) =>
+                                                                                    {
+                                                                                         var matEntry = (EntryLabelFloatingView)bindable;
+                                                                                         matEntry.imagePassoword.Source = (ImageSource) newVal;
+                                                                                    });
 
         public string lblTextTitle
         {
@@ -111,7 +165,7 @@ namespace EntryLabelFloating.Controls
         {
             if (animated)
             {
-                var t1 = LabelFloating.TranslateTo(10, _marginTop, 100);
+                var t1 = LabelFloating.TranslateTo(30, _marginTop, 100);
                 LabelFloating.BackgroundColor = Color.FromHex("#F5F5F5");
                 var t2 = SizeTo(_fontSizeTitle);
                 await Task.WhenAll(t1, t2);
@@ -119,7 +173,7 @@ namespace EntryLabelFloating.Controls
             else
             {
                 LabelFloating.TranslationX = 0;
-                LabelFloating.TranslationY = -30;
+                LabelFloating.TranslationY = -35;
                 LabelFloating.FontSize = 14;
             }
         }
@@ -128,7 +182,7 @@ namespace EntryLabelFloating.Controls
         {
             if (animated)
             {
-                var t1 = LabelFloating.TranslateTo(10, 0, 100);
+                var t1 = LabelFloating.TranslateTo(30, 0, 100);
                 var t2 = SizeTo(_fontSizePlaceholder);
                 await Task.WhenAll(t1, t2);
             }
