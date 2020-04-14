@@ -7,6 +7,7 @@ https://xamgirl.com/image-entry-in-xamarin-forms/
 https://github.com/vecalion/FloatingLabels
 
 
-# Show
+# Android
+![Android](https://github.com/EmersonMeloMachado/EntryLabelFloating/blob/master/EntryLabelFloating/EntryLabelFloating/Android.gif)
 
-https://github.com/EmersonMeloMachado/EntryLabelFloating/blob/master/EntryLabelFloating/EntryLabelFloating/Android.gif
+
