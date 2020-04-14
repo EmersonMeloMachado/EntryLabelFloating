@@ -8,7 +8,7 @@ https://github.com/vecalion/FloatingLabels
 
 
 # Android
-<img src="https://github.com/EmersonMeloMachado/EntryLabelFloating/blob/master/EntryLabelFloating/EntryLabelFloating/Android.gif?w=250" height="250" width="250">
+<img src="https://github.com/EmersonMeloMachado/EntryLabelFloating/blob/master/EntryLabelFloating/EntryLabelFloating/Android.gif?w=250" height="350" width="250">
 
 
 
