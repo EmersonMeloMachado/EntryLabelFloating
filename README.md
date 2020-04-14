@@ -8,6 +8,6 @@ https://github.com/vecalion/FloatingLabels
 
 
 # Android
-![Android](https://github.com/EmersonMeloMachado/EntryLabelFloating/blob/master/EntryLabelFloating/EntryLabelFloating/Android.gif?w=512)
+![Android](https://github.com/EmersonMeloMachado/EntryLabelFloating/blob/master/EntryLabelFloating/EntryLabelFloating/Android.gif?w=250)
 
 
