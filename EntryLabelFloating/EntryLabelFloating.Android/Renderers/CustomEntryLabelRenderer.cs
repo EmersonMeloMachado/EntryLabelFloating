@@ -1,9 +1,11 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Android.Content;
 using Android.Graphics;
 using Android.Content.Res;
 using Android.Support.V4.Content;
 using Android.Graphics.Drawables;
+using Android.Util;
 using Xamarin.Forms.Platform.Android;
 using EntryLabelFloating.Custom;
 using EntryLabelFloating.Droid.Renderers;
@@ -44,9 +46,19 @@ namespace EntryLabelFloating.Droid.Renderers
                 }
 
                 Control.CompoundDrawablePadding = 25;
+
+                //Define a distancia entre o texto interno da borda
+                Control.SetPadding(
+                    (int)DpToPixels(this.Context, Convert.ToSingle(12)), Control.PaddingTop,
+                    (int)DpToPixels(this.Context, Convert.ToSingle(12)), Control.PaddingBottom);
             }
         }
 
+        public static float DpToPixels(Context context, float valueInDp)
+        {
+            DisplayMetrics metrics = context.Resources.DisplayMetrics;
+            return TypedValue.ApplyDimension(ComplexUnitType.Dip, valueInDp, metrics);
+        }
         protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
